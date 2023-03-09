@@ -15,10 +15,12 @@ int main( void ){
         printf("?");
         scanf("%d%s%f", &numConta, &nome, &saldoConta);
     
+        //eof (end of file), é um estado que indica a finalização de um arquivo.
         while(!feof(stdin)){
-            fprintf(cfPtr, "%d %s %.2f\n", &numConta, &nome, &saldoConta);
+            fprintf(cfPtr, "%d %s %.2f\n", numConta, nome, saldoConta);
             printf("?");
             scanf("%d%s%f", &numConta, &nome, &saldoConta);
+            //Para você indicar o fim do arquivo/um eof você so precisa digitar Ctrl d ou Ctrl z
         }
 
         fclose(cfPtr)
