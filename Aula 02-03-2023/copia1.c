@@ -2,6 +2,8 @@
 
 // stdout, stdin, stderr
 
+// argc é a quantidade de argumentos
+
 int main(int argc, char** argv)
 {
 	FILE *entrada, *saida;
