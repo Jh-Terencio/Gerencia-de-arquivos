@@ -29,8 +29,9 @@ int main(int argc, char** argv)
 		fprintf(stderr,"Arquivo %s não pode ser aberto para escrita\n", argv[2]);
 		return 1;
 	}
-
-	qtd = fread(buffer,1,TAMANHO,entrada);
+	//Parametros do fread (Aonde vai ser colocado os dados vindos, Qual a unidade de leitura/tamanho do elemento (nesse exemplo 1 byte), Tamanho que quero ler e daonde eu vou ler)
+	//O fwrite é a mesma coisa que o fread
+	qtd = fread(buffer,sizeof(char),TAMANHO,entrada);
 	while(qtd > 0)
 	{
 		fwrite(buffer,1,qtd,saida);
