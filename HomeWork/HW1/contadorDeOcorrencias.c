@@ -4,8 +4,13 @@
 int main(int argc, char** argv)
 {
     FILE *entrada;
-    int cont = 0;
-    int array[MAX] = {0};
+    int c;
+    int byte;
+    int array[MAX];
+
+    for(int i = 0; i < MAX; i++){
+        array[i] = 0;
+    }
 
     if(argc != 2){
         fprintf(stderr,"Erro na chamada do comando.\n");
@@ -19,11 +24,20 @@ int main(int argc, char** argv)
 		return 1;
 	}
 
-    while(!feof(entrada)){
-        fread()
+    c = fgetc(entrada);
+
+    while((byte = c) != EOF){
+        array[byte]++;
+        c = fgetc(entrada);
     }
 
     fclose(entrada);
+
+    for (int i = 0; i < MAX; i++) {
+      if (array[i] != 0) {
+         printf("O byte %d apareceu %d vezes no arquivo.\n", i, array[i]);
+      }
+   }
 
     return 0;
 }
