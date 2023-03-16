@@ -5,7 +5,6 @@ int main(int argc, char** argv)
 {
     FILE *entrada;
     int c;
-    int byte;
     int array[MAX];
 
     for(int i = 0; i < MAX; i++){
@@ -26,8 +25,8 @@ int main(int argc, char** argv)
 
     c = fgetc(entrada);
 
-    while((byte = c) != EOF){
-        array[byte]++;
+    while(c != EOF){
+        array[c]++;
         c = fgetc(entrada);
     }
 
