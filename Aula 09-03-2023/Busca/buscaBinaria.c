@@ -1,3 +1,6 @@
+//Solução feita por João Henrique Terência e Biaca Tavares
+
+
 #include <stdio.h>
 #include <string.h>
 
@@ -21,7 +24,7 @@ int main(int argc, char**argv)
 	FILE *f;
 	Endereco e;
 	int qt;
-	int c;
+	int c = 0; //Quantidade de vezes que o loop é rodado
     int inicio, meio, fim, achei;
     long posicaoDoPonteiro;
 
@@ -33,9 +36,8 @@ int main(int argc, char**argv)
 
     achei = 0;
     inicio = 0;
-	c = 0;
 	printf("Tamanho da Estrutura: %ld\n\n", sizeof(Endereco));
-	f = fopen("cep.dat","r");
+	f = fopen("cep_ordenado.dat","rb");
     //fread(destino(Aonde vc vai salvar os dados), quantidade de bytes, quantidade de elementos lidos,arquivo de entrada(entrada))
 	fseek(f, 0, SEEK_END);
     //ftell retorna a posição atual do ponteiro no arquivo
@@ -57,7 +59,6 @@ int main(int argc, char**argv)
 		}else{
 			inicio = meio + 1;
 		}
-		qt = fread(&e,sizeof(Endereco),1,f);
     }
 
 	printf("Total Lido: %d\n", c);
